@@ -1,0 +1,16 @@
+<h1>Look at all these mails!!</h1>
+<br>
+
+<% @senders.each do |sender| %>
+
+  <h2><%= sender.name %></h2>
+  <h3><%= sender.url %></h3>
+  <% @letters.each do |letter|
+    if letter.sender_id == sender.id %>
+      <%=letter.content%>
+      <br>
+    <%end%>
+    <br>
+
+    <%end%>
+<%end%>
