@@ -26,7 +26,7 @@ class EmailProcessor
     # Letter.create(title: "Be cool!",  sender_id: 2, content:
     # "<h1>An email hit the server</h1>")
 
-    Letter.create(title: email.subject , content: email.body )
+    Letter.create(content: email.body )
 
   end
 
