@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :senders
   resources :letters
+  resources :email_processor
   root 'senders#index'
 
 
