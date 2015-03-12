@@ -14,3 +14,13 @@
 
     <%end%>
 <%end%>
+
+<br><br><br><br><br><br>
+<h1>And now just the mail!</h1>
+<br><br>
+
+<% @letters.each do |letter| %>
+  <h4>letter</h4>
+  <%=letter.content%>
+  <br>
+<% end %>
