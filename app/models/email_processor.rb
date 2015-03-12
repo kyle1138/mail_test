@@ -1,4 +1,4 @@
-class EmailProcessor < ActiveRecord::Base
+class EmailProcessor
 
 
   def self.process(email)
