@@ -32,6 +32,8 @@ gem 'unicorn'
 gem 'rest-client'
 
 gem 'griddler'
+
+gem 'griddler-sendgrid'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
