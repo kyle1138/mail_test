@@ -1,5 +1,9 @@
 == README
 
+I followed this tutorial, then I tried using code from the griddler github docs.
+Some notable points, emails are not bouncing back, but my number of sendgrid credits dont seem to be depleting.
+
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
