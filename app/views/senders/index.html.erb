@@ -7,7 +7,7 @@
   <h3><%= sender.url %></h3>
   <% @letters.each do |letter|
     if letter.sender_id == sender.id %>
-      <%=letter.content%>
+      <%=letter.content.html_safe%>
       <br>
     <%end%>
     <br>
@@ -21,6 +21,6 @@
 
 <% @letters.each do |letter| %>
   <h4>letter</h4>
-  <%=letter.content%>
+  <%=letter.content.html_safe%>
   <br>
 <% end %>
