@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :letters
   root 'senders#index'
 
-  post '/email_processor' => 'griddler/emails#create'
+  # post '/email_processor' => 'griddler/emails#create'
+
+  mount_griddler
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

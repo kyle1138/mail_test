@@ -7,7 +7,6 @@ class  SendersController < ApplicationController
     @senders = Sender.all
     @letters = Letter.all
 
-
     # RestClient.post "https://api:key-45353bea761148676ae6fbb927af15b5"\
     # "@api.mailgun.net/v2/sandbox471d5fcdac604d1baef1aac24fbe0849.mailgun.org/messages",
     # :from => "Mailgun Sandbox <postmaster@sandbox471d5fcdac604d1baef1aac24fbe0849.mailgun.org>",
