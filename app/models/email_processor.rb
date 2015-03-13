@@ -6,7 +6,7 @@ class EmailProcessor
   def process
 
     # just to see if it reacts
-    Letter.create(title: "Something happened",  sender_id: 2, content:
+    Letter.create(title: "Something happened",  sender_id: 1, content:
     "<h1>An email hit the server</h1>")
 
     Letter.create!({ content: @email.body, sender: @email.from })
