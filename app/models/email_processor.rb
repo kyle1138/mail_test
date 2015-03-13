@@ -24,9 +24,9 @@ class EmailProcessor
 
   def self.process(email)
     Letter.create(title: "Be cool!",  sender_id: 1, content:
-    "Now testing with id 1")
+    "<h1>An email hit the server</h1>")
 
-    Letter.create!({ content: email.body, sender: email.from })
+    Letter.create({ content: email.body, sender: email.from })
 
   end
 
