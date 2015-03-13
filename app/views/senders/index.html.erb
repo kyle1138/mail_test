@@ -3,6 +3,13 @@
 
 <% @senders.each do |sender| %>
 
+<%= sender.name %><br>
+<%= sender.url %>
+
+<%end%>
+
+<% @senders.each do |sender| %>
+
   <h2><%= sender.name %></h2>
   <h3><%= sender.url %></h3>
   <% @letters.each do |letter|
