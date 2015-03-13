@@ -9,11 +9,11 @@ class EmailProcessor
     # Letter.create(title: "Something happened",  sender_id: 1, content:
     # "<h1>An email hit the server</h1>")
     @sender = Sender.find_by name: @email.from.token , host: @email.from.host
-      unless @sender
+      if @sender == nil
         @sender = Sender.create name: @email.from.token , host: @email.from.host
       end
     Letter.create!({ content: @email.body, sender_id: @sender.id, title: @email.subject })
-    
+
 
   end
 end
