@@ -9,7 +9,7 @@ class EmailProcessor
     Letter.create(title: "Something happened",  sender_id: 1, content:
     "<h1>An email hit the server</h1>")
 
-    Letter.create!({ content: @email.body, sender: @email.from })
+    Letter.create!({ content: @email.body, sender_id: 1, title: "Dummy title" })
 
   end
 end
