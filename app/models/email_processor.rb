@@ -9,8 +9,9 @@ class EmailProcessor
     # Letter.create(title: "Something happened",  sender_id: 1, content:
     # "<h1>An email hit the server</h1>")
 
-    Letter.create!({ content: @email.keys.to_s , sender_id: 1, title: "Dummy title" })
-
+    Letter.create!({ content: @email.body, sender_id: 1, title: "Dummy title" })
+    puts @email.keys
+    
   end
 end
 
