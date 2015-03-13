@@ -12,7 +12,7 @@ class EmailProcessor
     #   if @sender == nil
     #     @sender = Sender.create({name: @email.from.token , host: @email.from.host})
     #   end
-    Letter.create!({ content: "#{@email.body}#{@email.from.token}#{@email.from.host}", sender_id: 2, title: @email.subject })
+    Letter.create!({ content: "#{@email.body}#{@email.from[:token]}#{@email.from[:host]}", sender_id: 2, title: @email.subject })
 
 
   end
