@@ -5,6 +5,7 @@ class CreateLetters < ActiveRecord::Migration
       t.text :content
       t.text :sender
       t.integer :sender_id
+      t.integer :user_id
 
       t.timestamps null: false
     end
