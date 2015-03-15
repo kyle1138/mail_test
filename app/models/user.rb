@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   before_create :create_remember_token
 
 
-  has_many :letters
+
 
   has_secure_password
 
