@@ -1,12 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mail</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>MailTailor</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header id="header">
+      <nav>
+        <ul>
+          <% if signed_in? %>
+            <li> <%= @user.name %> </li>
+            <li> <%= link_to "Sign out", signout_path, method: "delete" %></li>
+          <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "Sign up", signup_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+      <header>
 
 <%= yield %>
 

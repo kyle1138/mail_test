@@ -1,15 +1,37 @@
 Rails.application.routes.draw do
 
-
   resources :senders
   resources :letters
-  root 'senders#index'
 
-  # post '/email_processor' => 'griddler/emails#create'
+  resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  root "static_pages#home"
+  match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
 
   mount_griddler
+end
 
 
+
+#
+# Rails.application.routes.draw do
+#
+#
+#   resources :senders
+#   resources :letters
+#   resources :users
+#   resources :sessions, only: [:new, :create, :destroy]
+#   root "static_pages#home"
+#   match '/signup', to: 'users#new', via: 'get'
+#   match '/signin', to: 'sessions#new', via: 'get'
+#   match '/signout', to: 'sessions#destroy', via: 'delete'
+#   # post '/email_processor' => 'griddler/emails#create'
+#
+#   mount_griddler
+#
+#
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -65,4 +87,3 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end

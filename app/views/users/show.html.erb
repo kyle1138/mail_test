@@ -1,1 +1,7 @@
 <h1>Welcome, <%= @user.name%></h1>
+
+<% @letters.each do |letter|
+  %>
+    <%=letter.content.html_safe%>
+    <br>
+<%end%>

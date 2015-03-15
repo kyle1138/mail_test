@@ -1,5 +1,8 @@
 class Letter < ActiveRecord::Base
 
-  belongs_to :sender
+
+  belongs_to :user
+  has_one :sender
+
 
 end
