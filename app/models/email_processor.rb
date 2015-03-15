@@ -10,7 +10,8 @@ class EmailProcessor
     # "<h1>An email hit the server</h1>")
 
     # trying to create sender info in a table
-    @user = User.find_by(name: @email.from[:email].split("@")[0])
+    recip = @email.from[:email].split("@")
+    @user = User.find_by(name: recip[0])
     if @user.id
       @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
         if @sender == nil
