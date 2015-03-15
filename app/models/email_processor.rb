@@ -12,7 +12,7 @@ class EmailProcessor
     # trying to create sender info in a table
     recip = @email.from[:email].split("@")
     @user = User.where(:name => recip[0])
-    if @user.id
+    if @user
       @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
         if @sender == nil
           @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
