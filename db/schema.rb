@@ -25,13 +25,6 @@ ActiveRecord::Schema.define(version: 20150315152232) do
 
   add_index "letters", ["user_id"], name: "index_letters_on_user_id"
 
-  create_table "senders", force: :cascade do |t|
-    t.text     "name"
-    t.text     "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
