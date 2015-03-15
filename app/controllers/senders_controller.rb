@@ -5,10 +5,6 @@ class  SendersController < ApplicationController
 
   def index
 
-    @user = User.find_by(id: session[:user_id])
-    @letters = Letter.where(:user_id => @user.id) if @user
-    @senders = @letters.senders if @letters
-
 
   end
 
