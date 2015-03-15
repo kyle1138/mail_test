@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
-  has_many :senders
-  has_many :letters, through :senders
+  
+  has_many :letters
 
   has_secure_password
 
