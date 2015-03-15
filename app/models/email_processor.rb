@@ -10,12 +10,14 @@ class EmailProcessor
     # "<h1>An email hit the server</h1>")
 
     # trying to create sender info in a table
-    @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
-      if @sender == nil
-        @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
-      end
-    Letter.create!({ content: @email.body, sender_id: @sender.id, title: @email.subject })
-
+    @user = User.find_by(name: @email.from[:email].split("@")[0])
+    if @user.id
+      @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
+        if @sender == nil
+          @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
+        end
+      Letter.create!({ content: @email.body, sender_id: @sender.id, title: @email.subject, user_id: @user.id })
+    end
 
   end
 end
