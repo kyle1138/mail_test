@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :senders
+
   resources :letters
 
   resources :users
