@@ -14,15 +14,15 @@ class EmailProcessor
     # "<h1>An email hit the server</h1>")
 
     # trying to create sender info in a table
-    @recip = @to[0][:token]
-    @user = User.where(:name => @to)
+    @recip = @to[0][:token].downcase
+    @user = User.where(:name => @recip)
     unless @user == nil
       Letter.create!({ content: @body, sender: @from, title: @subject, recipient: @recip})
       # @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
       #   if @sender == nil
       #     @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
       #   end
-      
+
     end
 
   end
