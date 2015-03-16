@@ -11,7 +11,7 @@ class EmailProcessor
 
     # trying to create sender info in a table
     @recip = @email.from[:email].split("@")
-    @user = User.where(:name => recip[0])
+    @user = User.where(:name => @recip[0])
     unless @user == nil
       Letter.create!({ content: @email.body, sender: @email.from[:token] + "@" + @email.from[:host],
         title: @email.subject, recipient: @user.name})
