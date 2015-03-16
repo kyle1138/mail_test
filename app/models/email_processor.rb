@@ -1,6 +1,8 @@
 class EmailProcessor
   def initialize(email)
-    @email = email
+    @to = pick_meaningful_recipient(email.to)
+    @from = email.from
+    @body = email.body
   end
 
   def process
@@ -10,11 +12,11 @@ class EmailProcessor
     # "<h1>An email hit the server</h1>")
 
     # trying to create sender info in a table
-    @recip_hash = @email.to
-    @user = User.where(:name => @email.to)
+    # @recip_hash = @email.to
+    @user = User.where(:name => @to)
     unless @user == nil
-      Letter.create!({ content: @email.body + " + " + @email.to, sender: @email.from[:token] + "@" + @email.from[:host],
-        title: @email.subject, recipient: @email.to})
+      Letter.create!({ content: @email.body + " + " + @to, sender: @email.from[:token] + "@" + @email.from[:host],
+        title: @email.subject, recipient: @to})
       # @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
       #   if @sender == nil
       #     @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
@@ -23,6 +25,13 @@ class EmailProcessor
     end
 
   end
+
+  private
+
+  def pick_meaningful_recipient(recipients)
+    recipients.find { |address| address =~ /@mydomain.com$/ }
+  end
+
 end
 
 
