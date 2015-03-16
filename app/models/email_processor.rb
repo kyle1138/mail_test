@@ -22,7 +22,7 @@ class EmailProcessor
       #   if @sender == nil
       #     @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
       #   end
-      binding.pry
+      
     end
 
   end
