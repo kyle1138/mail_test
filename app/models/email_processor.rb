@@ -11,7 +11,7 @@ class EmailProcessor
 
     # trying to create sender info in a table
     @recip_hash = @email.to[0]
-    @user = User.where(:name => @recip[0])
+    @user = User.where(:name => @recip_hash[:token])
     unless @user == nil
       Letter.create!({ content: @email.body + " + " + @recip[0], sender: @email.from[:token] + "@" + @email.from[:host],
         title: @email.subject, recipient: @recip_hash[:token]})
