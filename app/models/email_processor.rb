@@ -13,8 +13,8 @@ class EmailProcessor
     @recip = @email.from[:email].split("@")
     @user = User.where(:name => @recip[0])
     unless @user == nil
-      Letter.create!({ content: @email.body, sender: @email.from[:token] + "@" + @email.from[:host],
-        title: @email.subject, recipient: @user.name})
+      Letter.create!({ content: @email.body + " + " + @recip[0], sender: @email.from[:token] + "@" + @email.from[:host],
+        title: @email.subject, recipient: @recip[0]})
       # @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
       #   if @sender == nil
       #     @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
