@@ -1,5 +1,14 @@
 <h1>Welcome, <%= @user.name%></h1>
 
+
+
+<% @senders.each do |sender|
+  %>
+    <%= sender %>
+    <br>
+<%end%>
+
+<br>
 <% @letters.each do |letter|
   %>
     <%= letter.content %>
