@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
       @letters = Letter.where(:recipient => @user.name.downcase) if @user
-    @senders = Letter.select(:sender).distinct
+    @senders = @letters.select(:sender).distinct
   end
 
   private
