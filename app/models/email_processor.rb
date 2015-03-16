@@ -3,6 +3,7 @@ class EmailProcessor
     @to = pick_meaningful_recipient(email.to)
     @from = email.from
     @body = email.body
+    @email = email
   end
 
   def process
