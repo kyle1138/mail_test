@@ -17,7 +17,7 @@ class EmailProcessor
     # @recip_hash = @email.to
     @user = User.where(:name => @to)
     unless @user == nil
-      Letter.create!({ content: @body, sender: @from, title: @subject, recipient: @email})
+      Letter.create!({ content: @body, sender: @from, title: @subject, recipient: @email.to})
       # @sender = Sender.find_by(name: @email.from[:token] , url: @email.from[:host])
       #   if @sender == nil
       #     @sender = Sender.create({name: @email.from[:token] , url: @email.from[:host]})
