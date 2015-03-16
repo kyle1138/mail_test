@@ -1,6 +1,6 @@
 class EmailProcessor
   def initialize(email)
-    @to = pick_meaningful_recipient(email.to)
+    @to = email.to
     @from = email.from
     @body = email.body
     @subject = email.subject
