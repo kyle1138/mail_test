@@ -2,11 +2,10 @@ class EmailProcessor
   def initialize(email)
     @to = email.to
     @from = email.from
-    if email.raw_html
-      @body = email.raw_html
-    else
-      @body = email.body
-    end
+    @body = email.raw_html
+
+    # @body = email.body
+
     @subject = email.subject
     @email = email
   end
@@ -23,7 +22,7 @@ class EmailProcessor
       #   end
 
     end
-
+    binding.pry
   end
 
   private
