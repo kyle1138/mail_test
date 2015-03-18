@@ -11,6 +11,13 @@
 <br>
 <% @letters.each do |letter|
   %>
-    <%= letter.content %>
+
+  <div class="">
+
+
+    <%= letter.content.html_safe %>
+
+  </div>
     <br>
+    <hr>
 <%end%>
