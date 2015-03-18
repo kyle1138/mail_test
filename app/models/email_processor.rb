@@ -13,11 +13,6 @@ class EmailProcessor
 
   def process
 
-    # just to see if it reacts
-    # Letter.create(title: "Something happened",  sender_id: 1, content:
-    # "<h1>An email hit the server</h1>")
-
-    # trying to create sender info in a table
     @recip = @to[0][:token].downcase
     @user = User.where(:name => @recip)
     unless @user == nil
