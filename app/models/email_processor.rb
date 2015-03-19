@@ -22,7 +22,7 @@ class EmailProcessor
       #   end
 
     end
-    binding.pry
+
   end
 
   private

@@ -5,8 +5,19 @@
 <% @senders.each do |sender|
   %>
     <%= sender.sender %>
+      <% @letters.each do |letter|
+        if letter.sender == sender %>
+          <%= letter.content.html_safe %>
+        <%end%>
+      <%end%>
+
+
     <br>
 <%end%>
+
+
+
+
 
 <br>
 <% @letters.each do |letter|
