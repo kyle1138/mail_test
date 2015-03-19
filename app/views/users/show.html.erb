@@ -4,7 +4,7 @@
 
 <% @senders.each do |sender|
   %>
-    <%= sender.sender %>
+    <h1> <%= sender.sender %> </h1>
       <% @letters.each do |letter|
         if letter.sender == sender %>
           <%= letter.content.html_safe %>
