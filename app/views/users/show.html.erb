@@ -73,8 +73,7 @@
 
                             <% @letters.each do |letter| %>
                             <div class="col-lg-12" id="content">
-                                <div id="email" class = "letterDiv"
-                                  class = "class<%= letter.sender.gsub(" " , "").gsub('.' , "") %>">
+                                <div id="email" class = "letterDiv class<%= letter.sender.gsub(" " , "").gsub('.' , "") %>">
                                     <%= letter.title %> <br/>
                                     <br/>
                                     <%= letter.content.html_safe %>
