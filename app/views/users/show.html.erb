@@ -107,7 +107,7 @@
 
       <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %>.addEventListener("click" , function(){
         var <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %> = document.getElementsByClassName("class<%= sender.sender.gsub(" " , "").gsub('.' , "") %>");
-    <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %>.forEach(function(letter){letter.style.display = "none"});
+    <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %>.forEach(function(letter){letter.innerHTML = "<h1>SHIT</h1>"});
     });
 
   <% end %>
