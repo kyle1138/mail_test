@@ -32,7 +32,7 @@
                 </li>
                 <% @senders.each do |sender| %>
                   <li>
-                      <a href="#"><%= sender.sender %></a>
+                      <span id = "<%= sender.sender %>" ><%= sender.sender %></a>
                   </li>
                 <% end %>
 
@@ -86,3 +86,5 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   </body>
   </html>
+
+  <%= link_to sender.sender,  letters_path + '?sender=' + sender.sender%>
