@@ -105,7 +105,7 @@
 
 
     $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function(){
-            $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggleClass(".hidden");
+            $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
         });
 
 
