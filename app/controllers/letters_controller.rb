@@ -6,10 +6,15 @@ class  LettersController < ApplicationController
   def index
 
     @user = User.find_by(id: session[:user_id])
-    @letters = @user.letters
-    @senders = @letters.senders
+    @letters = Letter.find_by(letter_params)
 
 
   end
+
+
+  private
+    def letter_params
+      params.require(:letter).permit( :sender , :recipient )
+    end
 
 end

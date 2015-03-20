@@ -20,9 +20,14 @@ class UsersController < ApplicationController
     @senders = @letters.select(:sender).distinct
   end
 
+  # def show
+  #   @user = User.find(params[:id])
+  #
+  #   @senders = @user.letters.map { |letter| letter.sender }
+  # end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
-Letter.select(:sender).distinct

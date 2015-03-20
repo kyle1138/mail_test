@@ -1,3 +1,15 @@
+<% @letters.each do |letter| %>
+<div class="col-lg-12" id="content">
+    <div id="email">
+        <%= letter.title %> <br/>
+        <br/>
+        <%= letter.content.html_safe %>
+        </div>
+
+</div>
+<% end %>
+
+
 <h1>Look at all these mails!!</h1>
 <br>
 
