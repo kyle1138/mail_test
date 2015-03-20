@@ -88,8 +88,8 @@
 
   <% @senders.each do |sender| %>
 
-    var <%= 'get' + sender.sender %> = document.getElementById('<%= sender.sender %>')
-    <%= 'get' + sender.sender %>.addEventListener("click" , function(){alert('<%= sender.sender %>')})
+    var <%= 'get' + sender.sender %> = document.getElementById('<%= sender.sender %>');
+    <%= 'get' + sender.sender %>.addEventListener("click" , function(){alert('<%= sender.sender %>')});
 
   <% end %>
 
