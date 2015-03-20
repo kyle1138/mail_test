@@ -86,7 +86,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script>
 
-  <% @sender.each do |sender| %>
+  <% @senders.each do |sender| %>
 
     var <%= 'get' + sender.sender %> = document.getElementById(<%= sender.sender %>)
     <%= 'get' + sender.sender %>.addEventListener("click" , alert(<%= sender.sender %>))
