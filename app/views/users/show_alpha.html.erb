@@ -1,0 +1,35 @@
+<h1>Welcome, <%= @user.name%></h1>
+
+
+
+<% @senders.each do |sender|
+  %>
+    <h1> <%= sender.sender %> </h1>
+      <% @letters.each do |letter|
+
+        if letter.sender == sender %>
+          <%= letter.content.html_safe %>
+        <%end%>
+      <%end%>
+
+
+    <br>
+<%end%>
+
+
+
+
+
+<br>
+<% @letters.each do |letter|
+  %>
+
+  <div class="">
+
+
+    <%= letter.content.html_safe %>
+
+  </div>
+    <br>
+    <hr>
+<%end%>
