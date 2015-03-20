@@ -67,7 +67,7 @@
                                   </div><!-- /.navbar-collapse -->
                               </div><!-- /.container-fluid -->
                           </nav>
-                          <% @user.letters.each do |letter| %>
+                          <% @letters.each do |letter| %>
                           <div class="col-lg-12" id="content">
                               <div id="email">
                                   <%= letter.title %> <br/>
@@ -76,7 +76,7 @@
                                   </div>
 
                           </div>
-
+                          <% end %>
                       </div>
                   </div>
               </div><!-- /#page-content-wrapper -->
