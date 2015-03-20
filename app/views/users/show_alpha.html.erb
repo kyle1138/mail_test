@@ -32,4 +32,16 @@
   </div>
     <br>
     <hr>
+
+    <% @senders.each do |sender| %>
+
+      var <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %> = document.getElementById("<%= sender.sender.gsub(" " , "").gsub('.' , "") %>");
+
+        <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %>.addEventListener("click" , function(){
+          var <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %> = document.getElementsByClassName("class<%= sender.sender.gsub(" " , "").gsub('.' , "") %>");
+      <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %>.forEach(
+        function(elem){elem.innerHTML = "<h1>TEST</h1>"});
+      });
+
+    <% end %>
 <%end%>

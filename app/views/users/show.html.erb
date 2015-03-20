@@ -32,8 +32,7 @@
                 </li>
                 <% @senders.each do |sender| %>
                   <li>
-                      <span id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>"
-                        class = "class<%= sender.sender.gsub(" " , "").gsub('.' , "") %>" ><%= sender.sender %></a>
+                      <span id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>" ><%= sender.sender %></a>
                   </li>
                 <% end %>
 
@@ -73,7 +72,7 @@
 
                             <% @letters.each do |letter| %>
                             <div class="col-lg-12" id="content">
-                                <div id="email" class = "letterDiv class<%= letter.sender.gsub(" " , "").gsub('.' , "") %>">
+                                <div id="email" class = "letterDiv class<%= letter.sender.gsub(" " , "").gsub('.' , "")%>">
                                     <%= letter.title %> <br/>
                                     <br/>
                                     <%= letter.content.html_safe %>
@@ -98,19 +97,20 @@
 
     var mailDis = document.getElementById("mailDis");
 
-
+    $( window ).load(function() {
 
   <% @senders.each do |sender| %>
 
     var <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %> = document.getElementById("<%= sender.sender.gsub(" " , "").gsub('.' , "") %>");
 
-      <%= 'get' + sender.sender.gsub(" " , "").gsub("." , "") %>.addEventListener("click" , function(){
-        var <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %> = document.getElementsByClassName("class<%= sender.sender.gsub(" " , "").gsub('.' , "") %>");
-    <%= 'class' + sender.sender.gsub(" " , "").gsub("." , "") %>.forEach(function(letter){letter.innerHTML = "<h1>SHIT</h1>"});
-    });
+
+    $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function(){
+            $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggleClass(".hidden");
+        });
+
 
   <% end %>
-
+});
 
   </script>
 
