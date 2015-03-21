@@ -11,12 +11,7 @@
 
 <body>
 
-  <!--  dialog pop ups -->
-  <% @senders.each do |sender| %>
-    <div id = "dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" title="Delete this Sender?">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
-    </div>
-  <% end %>
+
 
   <div class = "container-fluid">
 
@@ -96,6 +91,15 @@
               </div><!-- /#page-content-wrapper -->
           </div> <!-- closes container -->
   <!-- Bootstrap JS -->
+
+  <!--  dialog pop ups -->
+  <% @senders.each do |sender| %>
+    <div id = "dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" title="Delete this Sender?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+  <% end %>
+
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script>
@@ -123,29 +127,30 @@
         });
 
 
-        $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
-          autoOpen: false,
-          resizable: false,
-          height:140,
-          modal: true,
-          buttons: {
-            "Delete all items": function() {
-              $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
-              $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
-              $( this ).dialog( "close" );
-            },
-            Cancel: function() {
-              $( this ).dialog( "close" );
+        $(function(){
+          $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
+            autoOpen: false,
+            resizable: false,
+            height:140,
+            modal: true,
+            buttons: {
+              "Delete all items": function() {
+                $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
+                $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
+                $( this ).dialog( "close" );
+              },
+              Cancel: function() {
+                $( this ).dialog( "close" );
+              }
             }
-          }
+          });
+
+
+
+          $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
+          $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
         });
-
-
-
-        $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
-        $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
-      });
-
+    });
 
 
   <% end %>
