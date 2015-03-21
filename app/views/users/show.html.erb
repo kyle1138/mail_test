@@ -31,8 +31,8 @@
                     <input placeholder="SEARCH" id="search">
                 </li>
                 <% @senders.each do |sender| %>
-                  <li>
-                      <span id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>" ><%= sender.sender %></a>
+                  <li id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>">
+                      <span><%= sender.sender %></a>
                   </li>
                 <% end %>
 
