@@ -36,7 +36,7 @@
                 <% @senders.each do |sender| %>
                   <li>
                       <span id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>"><%= sender.sender %></span>
-                      <button id =  "del_<%= sender.sender.gsub(" " , "").gsub('.' , "") %>">DELETE</button>
+                      <button id =  "delete<%= sender.sender.gsub(" " , "").gsub('.' , "") %>">DELETE</button>
 
                   </li>
                 <% end %>
@@ -127,7 +127,7 @@
         });
 
 
-
+        $(function(){
           $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
             autoOpen: false,
             resizable: false,
@@ -147,10 +147,10 @@
 
 
 
-          $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
+          $("#delete<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
           $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
         });
-
+    });
 
 
   <% end %>
