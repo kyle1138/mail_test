@@ -10,6 +10,14 @@
 </head>
 
 <body>
+
+  <!--  dialog pop ups -->
+  <% @senders.each do |sender| %>
+    <div id="dialog<%= sender.sender.gsub(" " , "").gsub('.' , "") %>" title="Delete this Sender?">
+    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
+    </div>
+  <% end %>
+
   <div class = "container-fluid">
 
      <div id="wrapper">
@@ -115,8 +123,8 @@
         });
 
 
-        $(function() {
-        $( "#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
+        $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
+        $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
           resizable: false,
           height:140,
           modal: true,
