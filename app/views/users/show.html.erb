@@ -111,7 +111,38 @@
 
     var mailDis = document.getElementById("mailDis");
 
-    $( window ).load(function() {
+
+    <% @senders.each do |sender| %>
+          $(function(){
+            $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
+              autoOpen: false,
+              resizable: false,
+              height:140,
+              modal: true,
+              buttons: {
+                "Delete all items": function() {
+                  $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
+                  $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
+                  $( this ).dialog( "close" );
+                },
+                Cancel: function() {
+                  $( this ).dialog( "close" );
+                }
+              }
+            });
+
+
+
+            $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
+            $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
+          });
+      });
+
+  <% end %>
+
+
+
+    $( document ).ready(function() {
 
   <% @senders.each do |sender| %>
 
@@ -127,30 +158,6 @@
         });
 
 
-        $(function(){
-          $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
-            autoOpen: false,
-            resizable: false,
-            height:140,
-            modal: true,
-            buttons: {
-              "Delete all items": function() {
-                $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
-                $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
-                $( this ).dialog( "close" );
-              },
-              Cancel: function() {
-                $( this ).dialog( "close" );
-              }
-            }
-          });
-
-
-
-          $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
-          $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
-        });
-    });
 
 
   <% end %>
