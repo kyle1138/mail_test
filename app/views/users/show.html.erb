@@ -26,8 +26,8 @@
                     </a>
                 </li>
 
-                <li id="emailside">
-                    EMAIL ADDRESS
+                <li id="catselect">
+                    <button>Sales</button><button>News</button><button>Account</button>
                 </li>
 
                 <li>
@@ -93,11 +93,7 @@
   <!-- Bootstrap JS -->
 
   <!--  dialog pop ups -->
-  <% @senders.each do |sender| %>
-    <div id = "dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" title="Delete this Sender?">
-    <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
-    </div>
-  <% end %>
+  <!--  dialog pop ups were an  -->
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
@@ -127,28 +123,16 @@
         });
 
 
-        $(function(){
-          $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
-            autoOpen: false,
-            resizable: false,
-            height:140,
-            modal: true,
-            buttons: {
-              "Delete all items": function() {
-                $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
-                $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
-                $( this ).dialog( "close" );
-              },
-              Cancel: function() {
-                $( this ).dialog( "close" );
-              }
-            }
-          });
+
 
 
 
           $("#delete<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
-          $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
+            var kill = window.confirm("are you sure to delete?");
+            if (kill==true){
+              $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
+              $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").remove();
+            };
         });
     });
 
