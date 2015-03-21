@@ -105,15 +105,17 @@
 
 
     $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function(){
-            $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
-            $(this).toggle(
+
+            $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle(
 
               function(){
                       $(this).css('background-color', 'blue');
                   },
-                  function(){
+              function(){
                       $(this).css('background-color', 'red');
                   });
+
+              $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
 
         });
 
