@@ -39,8 +39,8 @@
                     <input placeholder="SEARCH" id="search">
                 </li>
                 <% @senders.each do |sender| %>
-                  <li id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>">
-                      <span><%= sender.sender %></span>
+                  <li>
+                      <span id = "<%= sender.sender.gsub(" " , "").gsub('.' , "") %>"><%= sender.sender %></span>
                       <button id =  "del_<%= sender.sender.gsub(" " , "").gsub('.' , "") %>">DELETE</button>
 
                   </li>
@@ -116,15 +116,15 @@
 
     $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function(){
 
-            $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggleClass("changebackground");
+            $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").parent().toggleClass("changebackground");
 
             $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
 
         });
 
 
-        $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
         $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog({
+          autoOpen: false,
           resizable: false,
           height:140,
           modal: true,
@@ -139,6 +139,11 @@
             }
           }
         });
+
+
+
+        $("#del_<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function() {
+        $( "#dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" ).dialog("open");
       });
 
 
