@@ -106,16 +106,9 @@
 
     $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function(){
 
-            $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle(
+            $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggleClass("changebackground");
 
-              function(){
-                      $(this).css('background-color', 'blue');
-                  },
-              function(){
-                      $(this).css('background-color', 'red');
-                  });
-
-              $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
+            $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
 
         });
 
