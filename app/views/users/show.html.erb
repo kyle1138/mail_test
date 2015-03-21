@@ -106,6 +106,15 @@
 
     $("#<%=sender.sender.gsub(' ' , '').gsub('.' , '') %>").click(function(){
             $(".class<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>").toggle();
+            $(this).toggle(
+
+              function(){
+                      $(this).css('background-color', 'blue');
+                  },
+                  function(){
+                      $(this).css('background-color', 'red');
+                  });
+
         });
 
 
