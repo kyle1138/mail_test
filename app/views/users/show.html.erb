@@ -13,7 +13,7 @@
 
   <!--  dialog pop ups -->
   <% @senders.each do |sender| %>
-    <div id="dialog<%= sender.sender.gsub(" " , "").gsub('.' , "") %>" title="Delete this Sender?">
+    <div id = "dialog<%= sender.sender.gsub(' ' , '').gsub('.' , '') %>" title="Delete this Sender?">
     <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>These items will be permanently deleted and cannot be recovered. Are you sure?</p>
     </div>
   <% end %>
